@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pandas
+pycaret==3.3.2
+numpy==1.26.4
+scipy==1.11.4
+shap==0.44.1
+slowapi
+streamlit
+requests
