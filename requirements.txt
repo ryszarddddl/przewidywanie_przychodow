@@ -1,5 +1,5 @@
 fastapi
-uvicorn
+uvicorn[standard]
 pandas
 pycaret==3.3.2
 numpy==1.26.4
