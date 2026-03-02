@@ -17,5 +17,7 @@ COPY . .
 EXPOSE 8000
 EXPOSE 8501
 
-# Skrypt startowy (najprościej odpalić oba na raz w tle)
-CMD uvicorn api.main:app --host 0.0.0.0 --port 8000 & streamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0
+# Skrypt startowy
+RUN echo '#!/bin/bash\nuvicorn api.main:app --host 0.0.0.0 --port 8000 &\nstreamlit run ui/app.py --server.port 8501 --server.address 0.0.0.0' > /app/start.sh && chmod +x /app/start.sh
+
+CMD ["/app/start.sh"]

@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+.env
+.git/
+.gitignore
+logs/
+*.log
+notebooks/
+tests/
+.pytest_cache/
+.coverage
+*.tar
+start.bat

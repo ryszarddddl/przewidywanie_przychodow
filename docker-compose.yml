@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  przewidywanie-plac:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: przewidywanie_plac
+    ports:
+      - "8000:8000"
+      - "8501:8501"
+    environment:
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      API_URL: ${API_URL:-http://0.0.0.0:8000}
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
