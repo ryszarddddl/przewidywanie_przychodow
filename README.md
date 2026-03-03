@@ -55,10 +55,35 @@ Wewnątrz kontenera aplikacja widzi tylko siebie. Aby Streamlit mógł pogadać 
     Użyj adresu IP swojego hosta (np. 192.168.1.15) lub nazwy serwisu w docker-compose.
 
 Monitorowanie i Logi
+Folder logs znajdziesz w głównym katalogu projektu:
+
+przewidywanie_przychodow/ ├── logs/ │ ├── api/ │ │ └── api_debug_YYYY-MM-DD_HH-MM.log │ └── frontend/ │ └── ui_debug_YYYY-MM-DD.log ├── api/ ├── ui/ └── ...
+
 Aplikacja loguje zdarzenia (FastAPI & Slowapi) na różnych poziomach. Możesz je śledzić na żywo:
 bash
 
 docker logs -f przewidywanie_plac
+
+# Logi FastAPI (port 8000)
+docker logs <CONTAINER_ID> | Select-String "Predykcja:"
+
+# Lub obejrzyj plik logu bezpośrednio z kontenera
+docker exec <CONTAINER_ID> cat /app/logs/api/api_debug_*.log
+
+# Logi Streamlit (port 8501)
+docker exec <CONTAINER_ID> cat /app/logs/frontend/ui_debug_*.log
+# Logi FastAPI (port 8000)
+docker logs <CONTAINER_ID> | Select-String "Predykcja:"
+
+# Lub obejrzyj plik logu bezpośrednio z kontenera
+docker exec <CONTAINER_ID> cat /app/logs/api/api_debug_*.log
+
+# Logi Streamlit (port 8501)
+docker exec <CONTAINER_ID> cat /app/logs/frontend/ui_debug_*.log
+
+
+
+
 
 Używaj kodu z rozwagą.
 Domyślny poziom logowania to INFO. Jeśli chcesz debugować połączenia, zmień poziom w zmiennych środowiskowych przy starcie (-e LOG_LEVEL=DEBUG).
