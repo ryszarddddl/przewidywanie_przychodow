@@ -1,10 +1,11 @@
 fastapi
 uvicorn[standard]
-pandas
+pandas==1.5.3
 pycaret==3.3.2
-numpy==1.26.4
+numpy==1.23.5
 scipy==1.11.4
 shap==0.44.1
 slowapi
 streamlit
 requests
+pydantic-settings
