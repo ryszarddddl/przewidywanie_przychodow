@@ -1,6 +1,8 @@
 Przewidywanie przychodów: FastAPI + Streamlit + ML (SHAP)
 
 Aplikacja oparta na modelu uczenia maszynowego (zestaw danych z Kaggle), która przewiduje wynagrodzenie na podstawie cech wejściowych. Projekt wykorzystuje FastAPI do serwowania prognoz oraz SHAP do wyjaśnialności modelu.
+
+
 🚀 Technologie
 
     FastAPI: Wysokowydajny framework webowy.
