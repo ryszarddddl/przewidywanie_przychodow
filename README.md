@@ -86,11 +86,10 @@ docker exec <CONTAINER_ID> cat /app/logs/api/api_debug_*.log
 # Logi Streamlit (port 8501)
 docker exec <CONTAINER_ID> cat /app/logs/frontend/ui_debug_*.log
 
-
-
-
-
-Używaj kodu z rozwagą.
 Domyślny poziom logowania to INFO. Jeśli chcesz debugować połączenia, zmień poziom w zmiennych środowiskowych przy starcie (-e LOG_LEVEL=DEBUG).
+
 Poziom logów aplikacji można ustawić w pliku env za pomocą parametru LOG_LEVEL. Wyrózniamy 3 poziomy logowania (INFO, WARNING, ERROR)
 Można też ustawić url api serwera w parametrze API_URL
+
+# zrzut ekranu
+<img width="1800" height="922" alt="estymacja_plac" src="https://github.com/user-attachments/assets/be320b9e-afcf-4346-9bd1-c0b9fa8d2f30" />
