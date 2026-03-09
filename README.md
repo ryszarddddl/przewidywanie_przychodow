@@ -14,25 +14,25 @@ Aplikacja oparta na modelu uczenia maszynowego (zestaw danych z Kaggle), która 
 🛠️ Instalacja i Uruchomienie
 1. Pobranie projektu (Clone)
 Najpierw sklonuj repozytorium na swój komputer:
-bash
-
+```
 git clone https://github.com
 cd przewidywanie_przychodow
-
+```
 Używaj kodu z rozwagą.
-2. Budowanie obrazu Docker
-Zbuduj obraz, który zainstaluje wszystkie zależności (Python, PyCaret, SHAP, FastAPI):
+1. Budowanie obrazu Docker
+Zainstaluj Docker Desktop: https://docs.docker.com/desktop/
+Następnie zbuduj obraz, który zainstaluje wszystkie zależności (Python, PyCaret, SHAP, FastAPI):
 bash
-
+```
 docker build -t przewidywanie_plac .
+```
 
-Używaj kodu z rozwagą.
 3. Uruchomienie (Złota zasada portów)
+Uruchomienie: Otwórz Docker Desktop, wejdź w zakładkę Images i kliknij Run przy estymator_maratonu. W ustawieniach (Optional settings) wpisz port (np. 8501). Adres do aplikacji znajdziesz w zakładce Containers. W razie problemów zapytaj Gordona (AI wbudowane w Docker Desktop).
 Aby aplikacja była dostępna w sieci lokalnej (np. na tablecie), musimy wystawić porty kontenera na zewnątrz:
-bash
-
+```
 docker run -d -p 8000:8000 -p 8501:8501 --name salary_app przewidywanie_plac
-
+```
 Używaj kodu z rozwagą.
 
     Ważne:
@@ -41,14 +41,17 @@ Używaj kodu z rozwagą.
         Z tabletu/innego PC: Otwórz http://<IP_TWOJEGO_KOMPUTERA>:8501
 
 4. Instalacja manualna.
-   Aby zainstalować aplikację bez dockera należy uruchomić konsolę (w przypadku windowsa cmd, linuxa bash) i wpisać:
+   Pobierz Pythona (zalecana wersja 3.11): https://www.python.org/downloads/ W konsoli zainstaluj wymagane biblioteki:
+```
 pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-5. Uruchamianie manualne:
+6. Uruchamianie manualne:
    Można użyć pliku start.bat lub
+   ```
    python -m uvicorn main:app --host 0.0.0.0 --port 8000
-
+   ```
 🔍 Architektura i Konfiguracja
 Dlaczego localhost nie działał?
 Wewnątrz kontenera aplikacja widzi tylko siebie. Aby Streamlit mógł pogadać z FastAPI, musi znać Twój adres IP w sieci domowej.
